@@ -21,6 +21,8 @@ router.post('/',
  md.checkAccountNameUnique,
   (req, res, next) => {
   try {
+    
+    res.json()
   } catch (err) {
     next(err);
   }
