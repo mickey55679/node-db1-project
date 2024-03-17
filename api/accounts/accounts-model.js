@@ -1,11 +1,17 @@
-
+// this will be used in the get all endpoint
+ const db = require('../../data/db-config');
+ // door to the database 
 const getAll = () => {
-  // DO YOUR MAGIC
+  // select * from accounts;
+return db('accounts');
+//this will perform a select * from accounts underneath and return a collection of accounts
+ 
   
 }
 
 const getById = id => {
-  // DO YOUR MAGIC
+ //select * from accounts where id = 1;
+ return db('accounts').where('id', id).first()
 }
 
 const create = account => {
