@@ -13,13 +13,7 @@ router.get('/', async  (req, res, next) => {
 })
 
 router.get('/:id', md.checkAccountId, async (req, res, next) => {
-  try {
-    const accounts = await Account.getById(req.params.id)
-    res.json(accounts)
-  } catch (err) {
-    next(err);
-  }
-  // DO YOUR MAGIC
+ res.json(req.account)
 })
 
 router.post('/',
@@ -30,7 +24,7 @@ router.post('/',
   } catch (err) {
     next(err);
   }
-  // DO YOUR MAGIC
+
 })
 
 router.put('/:id',
@@ -46,7 +40,7 @@ router.put('/:id',
 });
 
 router.delete('/:id', md.checkAccountId, (req, res, next) => {
-  // DO YOUR MAGIC
+
   try {
   } catch (err) {
     next(err);
