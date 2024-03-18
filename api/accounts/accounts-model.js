@@ -21,6 +21,7 @@ const create = async (account) => {
 const updateById = (id, account) => {};
 
 const deleteById = (id) => {
+  //delete from account where id = 1;
   return db("accounts").where("id", id).del();
 };
 

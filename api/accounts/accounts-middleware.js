@@ -25,20 +25,18 @@ if (error.message){
 };
 
 exports.checkAccountNameUnique = async (req, res, next) => {
-try {
-const existing = await db('accounts')
-.where('name', req.body.name.trim())
-.first()
+  try {
+    const { name } = req.body;
+    const existing = await db("accounts").where("name", name.trim()).first();
+    if (existing) {
+      return res.status(400).json({ message: "that name is taken" });
+    }
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
 
-if(existing){
-next({status: 400, message: 'that name is taken'})
-}else {
-  next()
-}
-} catch(err) {
-  next(err)
-}
-}
 
 exports.checkAccountId = async (req, res, next) => {
   try{
